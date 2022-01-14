@@ -1,4 +1,4 @@
-<img width="640" height="360" align="left" style="float: left; margin: 0 20px 0 0;" alt="Nyxa" src="https://i.vgy.me/EfChSJ.gif">
+<img width="150" height="150" align="left" style="float: left; margin: 0 20px 0 0;" alt="Nyxa" src="https://i.vgy.me/9IdHcU.png">
 
 # Nyxa
 
