@@ -1,0 +1,31 @@
+{
+  "name": "nyxa-origin",
+  "version": "0.0.1",
+  "description": "A distributed electronic ledger designed to hold and process the creation and trading of securities holdings.",
+  "main": "dist/index.js",
+  "repository": "https://github.com/Plutonus-Pty-Ltd/Nyxa",
+  "author": "PlutonusDev <joshua@plutonus.dev>",
+  "license": "GPL-3.0",
+  "private": false,
+  "scripts": {
+    "init": "npm i && npm run generate:dbClient && npm run generate:keys && echo Nyxa is ready to use!",
+    "generate:dbClient": "npx prisma generate",
+    "generate:keys": "sudo bash ./scripts/generateKeys.sh",
+    "start": "npm run build && node .",
+    "build": "rimraf ./dist && tsc"
+  },
+  "dependencies": {
+    "@prisma/client": "^3.8.1",
+    "dotenv": "^11.0.0",
+    "express": "^4.17.2",
+    "helmet": "^5.0.1",
+    "mongodb": "^4.3.0",
+    "prisma": "^3.8.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^17.0.8",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.5.4"
+  }
+}
