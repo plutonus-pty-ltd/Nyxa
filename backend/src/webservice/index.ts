@@ -12,6 +12,15 @@ export function start({ port, originNode }: { port: number, originNode?: boolean
 		next();
 	});
 
+	app.get("/", (req: Request, res: Response) => {
+		res.json({
+			message: "Nyxa | NFTHack2022 by PlutonusDev",
+			github: "https://github.com/Plutonus-Pty-Ltd/Nyxa",
+			showcase: "https://showcase.ethglobal.com/nfthack2022/nyxa",
+			version: require("../../package.json").version
+		});
+	});
+
 	app.use(fetchRouter.endpoint, fetchRouter.router);
 
 	app.listen(port, () => console.log(`[ WEBSERVER ] Online at 0.0.0.0:${port}`));
