@@ -11,8 +11,8 @@
     "init": "npm i && npm run generate:dbClient && npm run generate:keys && echo Nyxa is ready to use!",
     "generate:dbClient": "npx prisma generate",
     "generate:keys": "sudo bash ./scripts/generateKeys.sh",
-    "start": "npm run build && node .",
-    "build": "rimraf ./dist && tsc"
+    "start": "npm run build && cp src/keys dist/ -r && node .",
+    "build": "rm -rf ./dist && tsc"
   },
   "dependencies": {
     "@prisma/client": "^3.8.1",
@@ -25,7 +25,6 @@
   "devDependencies": {
     "@types/express": "^4.17.13",
     "@types/node": "^17.0.8",
-    "rimraf": "^3.0.2",
     "typescript": "^4.5.4"
   }
 }
