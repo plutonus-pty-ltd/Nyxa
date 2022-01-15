@@ -1,6 +1,6 @@
 import { Hash } from "crypto";
 
-declare type BlockData = {
+declare type BlockData = string | {
 	opCode: string;
 	asset?: string | null;
 	sender_add: string;
