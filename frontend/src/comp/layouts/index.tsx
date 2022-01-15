@@ -1,6 +1,8 @@
 import { useTheme } from "next-themes";
 
 import SEO from "../meta/SEO";
+import Header from "../ui/Header";
+import Footer from "../ui/Footer";
 
 export default function MainLayout({ children, ...pageInfo }) {
 	const { resolvedTheme, setTheme } = useTheme();
@@ -8,12 +10,14 @@ export default function MainLayout({ children, ...pageInfo }) {
 	return (
 		<>
 			<SEO {...pageInfo} />
-			<div data-theme={resolvedTheme} className="flex min-h-screen overflow-hidden bg-indigo-100 dark:bg-indigo-900 text-gray-900 dark:text-gray-50">
-				<div className="relative flex flex-col flex-1 overflow-x-hidden">
-					<main className="mx-3 my-3">
+			<div className="leading-normal tracking-normal text-indigo-400 dark:text-indigo-600 m-6 bg-cover bg-fixed">
+				<main className="h-full">
+					<Header />
+					<div className="container pt-24 md:pt-36 mx-auto flex flex-wrap flex-col md:flex-row items-center">
 						{children}
-					</main>
-				</div>
+					</div>
+					<Footer />
+				</main>
 			</div>
 		</>
 	);

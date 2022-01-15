@@ -32,7 +32,7 @@ export interface SEOProps {
 	title?: string;
 	site_name?: string;
 	site_url?: string;
-	twitter_handle: string;
+	twitter_handle?: string;
 }
 
 SEO.defaultProps = {
