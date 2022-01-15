@@ -5,13 +5,13 @@ import Header from "../ui/Header";
 import Footer from "../ui/Footer";
 
 export default function MainLayout({ children, ...pageInfo }) {
-	const { resolvedTheme, setTheme } = useTheme();
+	const { resolvedTheme, setTheme } = useTheme(); // Might use this, might not
 
 	return (
 		<>
 			<SEO {...pageInfo} />
-			<div className="leading-normal tracking-normal text-indigo-400 dark:text-indigo-600 m-6 bg-cover bg-fixed">
-				<main className="h-full">
+			<div className="leading-normal tracking-normal text-gray-900 dark:text-gray-50 m-6">
+				<main className="h-full bg-black-alt">
 					<Header />
 					<div className="container pt-24 md:pt-36 mx-auto flex flex-wrap flex-col md:flex-row items-center">
 						{children}

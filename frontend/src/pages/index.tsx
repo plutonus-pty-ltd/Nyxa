@@ -4,14 +4,14 @@ import Link from "next/link";
 export default function Index() {
 	return (
 		<Layout title="Welcome!">
-			<style global jsx>{`
+			{/*<style global jsx>{`
 				body {
 					background: url("/static/images/header.png");
 				}
-			`}</style>
+			`}<style>*/}
 
 			<div className="flex flex-col w-full justify-center lg:items-start overflow-y-hidden md:mx-16">
-				<img className="block md:hidden mb-8 w-full mx-auto object-scale-down" src="/static/images/logo.gif" />
+				<img className="rounded-lg block md:hidden mb-8 w-full mx-auto object-scale-down" src="/static/images/logo.gif" />
 				<div className="flex flex-row items-center mb-16 lg:mb-8">
 					<div className="w-full lg:w-1/2">
 						<h1 className="my-4 text-3xl md:text-3xl text-white opacity-75 font-bold leading-tight text-center">
@@ -35,12 +35,12 @@ export default function Index() {
 					</div>
 
 					<div className="hidden lg:block w-full w-1/2 p-12 overflow-hidden">
-						<img className="mx-auto w-3/5 transform -rotate-6 transition hover:scale-105 duration 700 ease-in-out hover:rotate-6" src="/static/images/logo.gif" />
+						<img className="rounded-lg mx-auto w-3/5 transform -rotate-6 transition hover:scale-105 duration 700 ease-in-out hover:rotate-6" src="/static/images/logo.gif" />
 					</div>
 				</div>
 
 				<div className="mx-auto md:pt-16">
-					<p className="text-white text-lg font-bold pb-8 lg:pb-6 text-center">
+					<p className="text-white text-lg font-bold pb-4 lg:pb-6 text-center">
 						Get Nyxa on the go!
 					</p>
 					<div className="flex w-full justify-center md:justify-start pb-24 lg:pb-0 fade-in">
