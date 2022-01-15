@@ -1,5 +1,7 @@
 import Crypto from "crypto";
 import { EventEmitter } from "events";
+import { BlockGenerator } from "./BlockGenerator";
+import { KeyPair } from "../lib/Utils";
 
 import type { IBlockchain } from "../types/LedgerNode.d";
 import type { BlockEntry, BlockData } from "../types/BlockGenerator.d";
@@ -11,8 +13,13 @@ export class BlockchainNode extends EventEmitter implements IBlockchain {
 		super();
 
 		(async () => {
+			const genesisBlock = await this.generateEntry(new BlockGenerator({ data: KeyPair.public.toString() || "Genesis Block" }, false));
+			if(genesisBlock === null) throw new Error("Failed to initialse genesis block!");
+			this.Cache = [ genesisBlock ];
 			this.emit("ready");
 		})();
+
+		return this;
 	}
 
 	obtainLatestBlock(): BlockEntry {

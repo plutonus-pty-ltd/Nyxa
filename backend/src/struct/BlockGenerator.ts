@@ -21,7 +21,7 @@ export class BlockGenerator {
 		signature: string | null;
 	}
 
-	constructor({ lastBlock, data }: { lastBlock?: string | null, data: BlockData }, encrypt: boolean = true) {
+	constructor({ lastBlock, data }: { lastBlock?: string | null, data: BlockData | string }, encrypt: boolean = true) {
 		// Instantiate the block's meta.
 		this.meta = {
 			encrypted: encrypt,
@@ -46,7 +46,7 @@ export class BlockGenerator {
 		// Sign the block
 		this.meta.signature = Crypto.createSign("RSA-SHA256").update(processing || this.data).sign({
 			key: KeyPair.private,
-			passphrase: process.env.SECRETKEY_PASSPHRASE
+			passphrase: process.env.PRIVATEKEY_PASSPHRASE
 		}, "base64");
 
 		// Finalise block's data
