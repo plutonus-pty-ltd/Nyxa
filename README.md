@@ -9,4 +9,4 @@
 
 Nyxa is a distributed electronic ledger designed to hold and process the creation and trading of securities holdings. Users are able to create tokenised assets, such as property leases, company shares, ETF units, and more. Using our own currency, `$NYXA`, as a medium, we will be able to compensate users running nodes of our blockchain, and create a healthy economy.
 
-More information soon!
+Due to events well out of my control, I have had a lot less time to work on this. I won't be available for the showcase or judging, but thank you for an awesome event! :)
