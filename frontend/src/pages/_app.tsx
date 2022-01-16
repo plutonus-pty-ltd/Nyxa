@@ -1,10 +1,9 @@
 import "../comp/styles/index.css";
-import { ThemeProvider } from "next-themes";
 
 export default function Nyxa({ Component, pageProps: { ...pageProps } }) {
 	return (
-		<ThemeProvider attribute="class">
+		<body className="bg-gray-800 font-sans antialiased min-h-screen">
 			<Component {...pageProps} />
-		</ThemeProvider>
+		</body>
 	);
 }

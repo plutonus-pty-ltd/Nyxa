@@ -40,7 +40,7 @@ export default function Header() {
 										<span className="hidden md:inline-block text-gray-100">Hi, {user.username}</span>
 										<IoIosArrowDropdown className="pl-2 h-6 w-6 text-gray-100 text-xl shrink-0" />
 									</button>
-									<div className={`bg-gray-800 rounded shadow-md mt-2 absolute mt-12 top-8 right-2 min-w-full overflow-auto z-30 ${!userMenu && "invisible"}`}>
+									<div className={`bg-gray-900 rounded shadow-md mt-2 absolute mt-12 top-8 right-2 min-w-full overflow-auto z-30 ${!userMenu && "invisible"}`}>
 										<ul className="list-reset">
 											<li><Link href="/account">
 												<span onClick={() => setUserMenu(false)} className="px-4 py-2 block text-gray-100 hover:bg-gray-800 no-underline hover:no-underline">My account</span>

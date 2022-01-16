@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 
-import Layout from "../comp/layouts";
+import Loader from "../comp/meta/Loader";
 
 export default function Logout() {
 	const router = useRouter();
@@ -10,9 +10,5 @@ export default function Logout() {
 		fetch("/api/logout").then(() => router.push("/"));
 	}, []);
 
-	return (
-		<Layout title="Logging out...">
-			<p className="animate-pulse">Deauthorizing your browser...</p>
-		</Layout>
-	);
+	return <Loader message="Deauthorizing your browser..." />;
 }

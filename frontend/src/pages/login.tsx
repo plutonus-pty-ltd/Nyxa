@@ -2,23 +2,29 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import useUser from "../lib/useUser";
 import * as Yup from "yup";
 
 import Layout from "../comp/layouts";
 import Link from "next/link";
+import Loader from "../comp/meta/Loader";
 
 import { AiOutlineCheckCircle, AiOutlineCloseCircle } from "react-icons/ai";
 
 export default function Login() {
-	const user = useUser();
+	const [ mounted, setMounted ] = useState(false);
 	const [ successMsg, setSuccessMsg ] = useState("");
 	const [ failMsg, setFailMsg ] = useState("");
 	const router = useRouter();
 
 	useEffect(() => {
-		if(user && user.loggedIn) router.push("/dashboard");
-	}, [user, router]);
+		async function checkUser() {
+			const user = await fetch("/api/user").then(res => res.json());
+			if(user && user.loggedIn) return router.push("/dashboard");
+			setMounted(true);
+		}
+
+		checkUser();
+	}, [router]);
 
 	const validationSchema = Yup.object().shape({
 		username: Yup.string()
@@ -50,6 +56,8 @@ export default function Login() {
 			setFailMsg("You supplied bad credentials.");
 		}
 	}
+
+	if(!mounted) return <Loader />;
 
 	return (
 		<Layout title="Sign In">
